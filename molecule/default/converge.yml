@@ -1,0 +1,9 @@
+---
+- name: Converge
+  hosts: all
+  roles:
+    - role: wireguard_setup
+      wireguard_server_private_key: +ByQqKI9cJn8ZCpmpzS9ccweVAqmb0lqMGPNEy0E9kQ=
+      wireguard_server_peers:
+        - address: 192.168.100.2/32
+          public_key: FSuVc0xS8iPUF2J9fQnERzgGdYaq0nC1wijknb07vjQ=

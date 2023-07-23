@@ -1,0 +1,17 @@
+---
+
+galaxy_info:
+  author: Lars Kiesow
+  role_name: wireguard_server
+  namespace: lkiesow
+  description: Set up a WireGuard VPN server
+  license: BSD-3-Clause
+  min_ansible_version: 2.9.0
+  galaxy_tags:
+    - wireguard
+    - vpn
+  platforms:
+    - name: EL
+      versions:
+        - '9'
+dependencies: []

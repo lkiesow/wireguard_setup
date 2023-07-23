@@ -1,0 +1,41 @@
+---
+
+name: ansible tests
+
+on:  # yamllint disable-line rule:truthy
+  - push
+  - pull_request
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: install dependencies
+        run: >
+          pip3 install
+          ansible
+          ansible-lint
+          yamllint
+          molecule
+
+      - name: create lxc container
+        uses: lkiesow/setup-lxc-container@v1
+        with:
+          dist: centos
+          release: 9-Stream
+          name: test.el9
+
+      - name: yamllint
+        run: |
+          yamllint .
+
+      - name: ansible-lint
+        run: |
+          ansible-lint
+
+      - name: run molecule tests
+        run: |
+          molecule test
