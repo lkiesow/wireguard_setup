@@ -4,6 +4,6 @@
   hosts: all
   gather_facts: false
   tasks:
-    - name: Check timer is active
+    - name: Check if WireGuard interface is available
       ansible.builtin.command:  # noqa no-changed-when command-instead-of-module
         cmd: ip a show wg0
